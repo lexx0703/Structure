@@ -5,35 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Structure"
         mc:Ignorable="d"
-        Title="ToolApp" Height="450" Width="800">
+        Title="ToolApp" Height="auto" Width="auto" MinWidth="380" MinHeight="189.96">
     <Grid x:Name="DataGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition Width="507*"/>
         </Grid.ColumnDefinitions>
-        <Grid Margin="0,174,0,0">
+        <Grid Margin="0,174,0,0" Background="{Binding ElementName=Products, Mode=OneWay}" Cursor="Cross" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name= "Products" Margin="10,-119,10,10" AutoGenerateColumns="False" Loaded="Window_Loaded" BorderThickness="5,5,5,5" Grid.ColumnSpan="2">
+            <DataGrid x:Name= "Products" Margin="10,-119,10,10" AutoGenerateColumns="False" Loaded="Window_Loaded" BorderThickness="5,5,5,5" Grid.ColumnSpan="2" Foreground="Black" BorderBrush="Black" Background="White" FontFamily="Consolas">
+                <DataGrid.CellStyle>
+                    <Style/>
+                </DataGrid.CellStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path = Number}" IsReadOnly= "False" Header="Номер" Width="50"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Path = Name}" IsReadOnly = "False" Header="Название" Width="65"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Path = Amount}" IsReadOnly= "False" Header="Количество" Width="75"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Path = Weight}" IsReadOnly= "False" Header="Вес" Width="30"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Path = Price}" IsReadOnly= "False" Header="Цена" Width="40"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Path = Capacity}" IsReadOnly= "False" Header="Грузоподъёмность" Width="120"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Path = AmountAllowed}" IsReadOnly= "True" Header="Допустимое количество" Width="145"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Path = MaxPrice}" IsReadOnly= "True" Header="Максимальная цена" Width="125"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = Number}" IsReadOnly= "False" Header="Номер" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = Name}" IsReadOnly = "False" Header="Название" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = Amount}" IsReadOnly= "False" Header="Количество" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = Weight}" IsReadOnly= "False" Header="Вес кг" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = Price}" IsReadOnly= "False" Header="Цена ₽" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = Capacity}" IsReadOnly= "False" Header="Грузоподъёмность (От 1000 кг)" Width="auto"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path = AmountAllowed}" IsReadOnly= "True" Header="Допустимое количество" Width="auto" Foreground="DarkGray"/>
+                    <DataGridTextColumn Binding="{Binding Path = MaxPrice}" IsReadOnly= "True" Header="Максимальная цена" Width="auto" Foreground="DarkGray"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <Button x:Name="Button1" Content="Обновить" HorizontalAlignment="Left" Margin="66,12,0,0" VerticalAlignment="Top" Click="Button_Click" Width="187" Height="31" ClipToBounds="True" BorderThickness="2,2,2,2">
+        <Button x:Name="Button1" Content="Обновить" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Width="160" Height="30" ClipToBounds="True" BorderThickness="2,2,2,2" BorderBrush="Black" Background="White" Foreground="Black" FontFamily="Consolas" FontWeight="Bold" Grid.ColumnSpan="2">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button x:Name="Button2" Content="Экспорт" HorizontalAlignment="Left" Margin="542,12,0,0" VerticalAlignment="Top" Width="187" Height="31" ClipToBounds="True" BorderThickness="2,2,2,2" Click="Button2_Click">
+        <Button x:Name="Button2" Content="Экспорт" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="160" Height="30" ClipToBounds="True" BorderThickness="2,2,2,2" Click="Button2_Click" BorderBrush="Black" Foreground="Black" Background="White" FontFamily="Consolas" FontWeight="Bold" Grid.Column="1">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

@@ -16,7 +16,19 @@ namespace Structure.Models
 
         public float Capacity
         {
-            get { return _Capacity; }
+            get
+            {
+                if (_Capacity >= 1000)
+                {
+                    {
+                        return _Capacity;
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
+            }
             set { _Capacity = value; }
         }
 
